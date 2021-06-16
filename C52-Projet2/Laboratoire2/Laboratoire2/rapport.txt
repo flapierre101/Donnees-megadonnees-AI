@@ -1,0 +1,52 @@
+
+420-C52-IN DONNÉES, MÉGADONNÉES ET INTELLIGENCE ARTIFICIELLE
+Projet 2 - Algorithme génétique
+
+Équipe: 
+Viens, Dany
+Lapierre, François
+Gaudreault,  Vincent
+Emond-Serret, Caroline
+Genest, Carl
+
+
+
+
+
+
+Ajouts personnels:
+1 - Choix des parents distincts dans l'algorithme génétique. 
+	a - Lors de la sélection des parents, une vérification est faite 
+	b - Algorithme génétique
+	c - Si le hasard choisissait deux fois le même parent, cela créait une copie d'une solution préexistante. Comme nous avons la possibilité de choisir le nombre d'élite,    il s'agissait d'une solution redondante. De choisir des parents différentes, augmente la variabilité de la prochaine solution et donc augmente la possibilité d'avoir un enfant plus performant, si le hasard le permet.
+
+2 - Modifier le nombre de gènes modifiables par mutation  
+	a - ajouter la possibilité de modifier plus d'un gène lors d'une même mutation.
+	b - Algorithme génétique
+	c - Au lieu de modifier un gène à la fois, un nombre aléatoire de gènes est modifié lors d'une mutation. Ce qui permet de créer de nouvelles formes  ayant été modifiées sur plusieurs axes (ex.: translation en diagonale). Ainsi, plus de solutions sont explorées.
+
+
+3 - Voir les solutions rejetées  
+	a - permet de voir le côté aléatoire et chaotique de l'algorithme en affichant tout ce qui est rejeté par notre analyse de fitness et également  de s'assurer que les solutions proposées explorent toute la surface de solution. 
+	b - Application
+	c - n/a
+
+4 - la génération 1 aura au minimum une solution viable. 
+	a - Lors du calcul d'une génération, une vérification est faite pour s'assurer qu'au moins une forte de la population initiale soit valide. 
+	b - Algorithme génétique
+	c - Si aucune solution n'est valide, une population est recrée au complet. Cela amène une convergence plus rapide lors de nos tests. 
+
+
+
+
+Expliquer en quoi votre implémentation de l’algorithme génétique est générique. Comment serait-il possible de l’utiliser pour un autre problème?
+
+
+
+L'algorithme est générique, car il n'a pas à connaître les détails du problème. 
+- Il faut lui fournir le nombre de gènes et une étendue (min-max) correspondant à chacun de ces gènes.
+- Il peut analyser un problème avec différentes tailles de population.
+- Il permet de recevoir des options : nombres d'élites, changement au taux de mutation, etc.
+- La fonction de fitness lui est donnée à sa création.
+
+Le code est créé pour utiliser les paramètres fournis à la création de la classe et peut utiliser différents types de données avec une légère modification. 

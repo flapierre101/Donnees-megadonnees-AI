@@ -1,0 +1,70 @@
+
+
+20 formes différentes
+
+Changements possibles :
+Translation, scaling, rotation.
+
+Métriques :
+
+Nb de Coins (si + de pixels noir que de pixel blanc)
+-- Normaliser : hardcoder un maximum de points (ex :100) 
+
+Variance entre point le plus loin du centre et le plus près du centre ( constant pour cercle, petite variante pour carré, grande variance pour étoile...)
+-- Point le plus près / point plus loin = métrique entre 0 et 1
+
+
+Ratio du périmètre^2 / l'aire 	(périmètre = si un pixel blanc et un voisin noir, 
+								aire = chaque pixel blanc de l'image )
+ -- le ratio devrait rester le même avec un scaling
+(La complexité - nom de la valeur  -- pixel^2 / pixel^2 == ratio )
+peri^2 / (4pi * aire) ( devrait donner une valeur en zéro 0)
+
+
+
+
+Plus près de 1 = cercle 
+près de 0 = complexe 
+
+
+
+
+Normalisation des métriques :
+0,1 
+
+
+
+3 classes minimales :
+--Algorithmes KNN 
+	1. on dispose dans un espace à n dimensions les données d’apprentissage
+	2. on dispose dans le même espace l’objet à classifier
+	3. on calcul la distance entre l’objet à classifier et chacune des données d’apprentissage
+	4. on retient les k voisins les plus près
+	5. on retient la classe la plus fréquente parmi ces k voisins
+	
+
+
+--Algorithme de réduction de complexité (donne les métriques)
+
+	Algo1 : Itérer une fois pour : 
+		- Donner l'aire	
+		- Donner X et Y maximum et minimum
+		- Le périmètre
+			-- générer un vecteur des points blanc, pour prochain algo
+			
+	Algo1' : Coin
+		- La valeur pour coin (nb de blanc vs noir) (Métrique #1)
+
+		
+	
+	Algo2 : pour le centre et obtenir le ratio de la variance. 
+		- Calcul du centre
+		- Calcul de la distance des points du perim par rapport au centre (Métrique #2)
+		- calcul de la complexité (peri^2 / (4pi * aire)) (Métrique #3)
+	
+
+--Faire l'interface graphiques
+	-- 
+
+
+

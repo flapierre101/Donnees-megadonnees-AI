@@ -1,0 +1,47 @@
+420-C52-IN DONNÉES, MÉGADONNÉES ET INTELLIGENCE ARTIFICIELLE
+Projet 1 - Algorithme KNN
+
+Équipe: 
+Viens, Dany
+Lapierre, François
+Gaudreault,  Vincent
+Emond-Serret, Caroline
+Genest, Carl
+
+
+Métriques choisies:
+1 - Variance de distance du centre.
+	a - Elle calcule le ratio entre la distance du point du périmètre le plus éloigné du centre et le point du périmètre le plus rapproché du centre. 
+	b - Domaine de valeur possible: max: 0.9835 min: 0.003 [0.003 ,0.9835]	
+	c - Une première itération calcule les extrêmes des coordonnées X et Y (min et max) pour générer la « bounding box ». 
+		La même itération génère un vecteur de point du périmètre et calcul la somme des valeurs X et Y de chaque point contenu dans l’aire de la forme.
+	Le point central de la forme est calculé est divisé la somme des X et des Y par l’aire. 
+	Une deuxième itération utilise le vecteur de point du périmètre pour calculer la distance min/max avec le centroïde selon la loi de Pythagore. 
+
+2 - Calcul de la complexité 
+	a – il s’agit du rapport entre l’aire et le périmètre selon la formule : 
+			Périmètre^2 / (4 * Pi * aire)
+	b - Domaine de valeur possible: min: 0 max: 0.4941  [0 ,1.55]
+	c- Dans la première itération de l’image, l’aire est calculée pour chaque pixel blanc trouvé. Le périmètre est trouvé par deux vérifications : 
+	si la couleur à changé (vérification de haut en bas) SINON si le pixel voisin à gauche ou droite est noir. 
+	Une vérification est faite dans un vecteur de point du périmètre pour s’assurer qu’un point X,Y ne soit pas additionné en double dans le périmètre.
+	Une fois les deux variables trouvées, la formule plus haut est utilisée. Le résultat est divisé par 6.5 pour normaliser les résultats avec l’étendue des autres données. 
+
+
+3 - le nombre de coins
+
+	a - Elle calcule le nombre de coins divisé par 10. 
+	b - Domaine de valeur possible: min: 0 max: 1.8999  [0 ,1.8999]
+	c-  Après avoir calculé le vecteur de point du périmètre (voir 1 & 2), un calcul des 8 voisins de chaque pixel est effectué. 
+		Si un point du périmètre X possède 3 pixels blancs et moins comme voisin, il s’agit alors d’un coin.
+		À condition qu’un pixel voisin ne soit pas déjà considéré comme un coin. Chaque nouveau pixel « coin » est stocké dans un vecteur.
+		Il s’agit, de loin, la métrique la moins précise. La complexité  d’algorithme pour avoir une donnée fiable dépassait nos compétences selon le temps disponible. 
+
+Ensemble de données le plus complexe que l'on peut résoudre:
+
+Set06 - 14 shapes : solution plus de la majorité du temps.
+	(no-transfom, translation, translation-rotation,translation-rotation-scaling)
+	
+La force des métriques 1 & 2 est suffisante pour pallier à la faiblesse de la troisième métrique.
+	
+	
